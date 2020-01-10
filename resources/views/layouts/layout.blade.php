@@ -82,7 +82,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                <li class="nav-item">
-                    <a href="pages/gallery.html" class="nav-link">
+                    <a href="{{route('home')}}" class="nav-link">
                     <i class="ion ion-person"></i>
                     <p>
                         Inicio
@@ -90,7 +90,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/gallery.html" class="nav-link">
+                    <a href="{{route('users')}}" class="nav-link">
                     <i class="ion ion-person-add"></i>
                     <p>
                         Usuarios
