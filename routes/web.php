@@ -20,3 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('users', 'usersController@users')->name('users');
+
+Route::get('users/add', 'usersController@create')->name('create');
+
+Route::post('users/add', 'usersController@store')->name('store');

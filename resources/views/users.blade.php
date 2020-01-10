@@ -1,13 +1,15 @@
 @extends('layouts.layout')
 
-@section('title')
-<h1>hola</h1>
-@endsection
-
 @section('section')
 
+@if (session('mensaje'))
+    <div class="alert alert-success">
+      {{ session('mensaje') }}
+    </div>
+@endif
+
   <div class="container my-4">
-  <a href="" class="btn btn-success btn-sm float-sm-right mt-5 mb-5">Nuevo usuario</a>
+  <a href="{{route('create')}}" class="btn btn-success btn-sm float-sm-right mt-5 mb-5">Nuevo usuario</a>
   <table class="table">
   <thead>
     <tr>
