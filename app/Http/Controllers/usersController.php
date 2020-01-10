@@ -19,7 +19,23 @@ class usersController extends Controller
 
     public function edit(App\User  $user){
         return view('edituser', compact('user'));
-     }
+    }
+
+    public function update(App\User  $user){
+
+        request()->validate([
+            'name' => 'required',
+            'password' => 'confirmed',
+        ]);
+
+        $user->fill([
+            'name' => request('name'),
+            'password' =>request('password') ?  Hash::make(request('password')) : $user->password
+        ]);
+        $user->save();
+
+        return redirect('users/edit/'.$user->id)->with('mensaje', 'Usuario Actualizado!');
+    }
 
     function store(Request $request){
         $request->validate([

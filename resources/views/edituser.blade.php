@@ -1,7 +1,16 @@
 @extends('layouts.layout')
 @section('section')
 
-<form action="{{route('store')}}" method="POST">
+<div class="col-md-7
+">
+@if(session('mensaje'))
+<div class="alert alert-success">
+<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      {{session('mensaje')}}
+</div>
+@endif
+
+<form action="{{route('update',$user->id)}}" method="POST">
     @csrf
 
     <h3>Nombre:</h3>
@@ -13,29 +22,23 @@
     @enderror
 
     <h3>Correo:</h3>
-    <input type="text" name="email" class="form-control mb-2" value="{{ $user->email }}" autocomplete="off">
-    @error('email')
-    <div class="alert alert-danger">
-      El correo es obligatorio
-    </div>
-    @enderror
-
+    <input type="text" name="email" class="form-control mb-2" value="{{ $user->email }}" disabled autocomplete="off">
+   
     <h3>Contraseña:</h3>
-    <input type="text" name="password" class="form-control mb-2" value="" autocomplete="off">
+    <input type="text" name="password" class="form-control mb-2"  autocomplete="off">
     @error('password')
     <div class="alert alert-danger">
-      La contraseña es obligatoria
+    {{$errors->first('password')}}
     </div>
     @enderror
 
     <h3> Confirmar contraseña:</h3>
-    <input type="text" name="confirmpass" class="form-control mb-2" value="" autocomplete="off">
-    @error('confirmpass')
-    <div class="alert alert-danger">
-      La contraseña es obligatoria
-    </div>
-    @enderror
+    <input type="text" id="password-confirm" name="password_confirmation" class="form-control mb-2"  autocomplete="off">
+   
+    <div>
     <button class="btn btn-primary btn-block" type="submit">Editar</button>
+    </div>
+    
     </form>
-
+    </div>
 @endsection
