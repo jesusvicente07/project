@@ -21,10 +21,10 @@ class usersController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
-            'password' => 'required',
-            'confirmpass' => 'required'
+            'password' => 'required|confirmed',
+            'password_confirmation' => 'required'
         ]);
-
+        
         $adduser = new App\User;
         $adduser->name = $request->name;
         $adduser->email = $request->email;
@@ -33,6 +33,5 @@ class usersController extends Controller
         $adduser->save();
 
         return redirect('users')->with('mensaje', 'Usuario Agregado!');
-
     }
 }
