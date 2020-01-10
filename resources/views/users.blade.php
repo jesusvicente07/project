@@ -22,7 +22,7 @@
     <tr>
       <td scope="row">{{$item->email}}</td>
       <td>
-      <a href="" class="btn btn-warning btn-sm">Editar</a>
+      <a href="{{route('edit',$item)}}" class="btn btn-warning btn-sm">Editar</a>
       <form action="" method="POST" class="d-inline">
       @method('DELETE')
       @csrf

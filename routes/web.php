@@ -24,3 +24,8 @@ Route::get('users', 'usersController@users')->name('users');
 Route::get('users/add', 'usersController@create')->name('create');
 
 Route::post('users/add', 'usersController@store')->name('store');
+
+Route::get('users/edit/{user}', 'usersController@edit')->name('edit');
+
+Route::put('users/edit/{user}', 'usersController@update')->name('update');
+

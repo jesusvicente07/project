@@ -17,6 +17,10 @@ class usersController extends Controller
        return view('adduser');
     }
 
+    public function edit(App\User  $user){
+        return view('edituser', compact('user'));
+     }
+
     function store(Request $request){
         $request->validate([
             'name' => 'required',
