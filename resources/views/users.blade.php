@@ -23,11 +23,27 @@
       <td scope="row">{{$item->email}}</td>
       <td>
       <a href="{{route('edit',$item)}}" class="btn btn-warning btn-sm">Editar</a>
-      <form action="" method="POST" class="d-inline">
-      @method('DELETE')
-      @csrf
-      <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
-      </form>
+      <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal{{$item->id}}">Eliminar</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal{{$item->id}}" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-body">
+            <strong>Seguro que desea eliminar al usuario:</strong>
+            <p>{{$item->email}}</p>
+          </div>
+          <div class="modal-footer">
+          <form action="{{route('delete', $item)}}" method="POST" class="d-inline col-md-10">
+          @method('DELETE')
+          @csrf
+          <button type="submit "class="btn btn-default">Eliminar</button>
+          </form>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+          </div>
+        </div>
       </td>
     </tr>
     @endforeach

@@ -29,3 +29,5 @@ Route::get('users/edit/{user}', 'usersController@edit')->name('edit');
 
 Route::post('users/edit/{user}', 'usersController@update')->name('update');
 
+Route::delete('users/delete/{user}', 'usersController@delete')->name('delete');
+

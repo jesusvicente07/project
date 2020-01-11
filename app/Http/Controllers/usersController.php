@@ -54,4 +54,11 @@ class usersController extends Controller
 
         return redirect('users')->with('mensaje', 'Usuario Agregado!');
     }
+
+    public function delete($id){
+        $deleteuser = App\User::findOrFail($id);
+        $deleteuser->delete();
+
+        return redirect('/users')->with('mensaje', 'Usuario eliminado!');
+    }
 }
