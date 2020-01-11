@@ -28,10 +28,10 @@ Editar: {{$user->email}}
     <input type="text" name="email" class="form-control mb-2" value="{{ $user->email }}" disabled autocomplete="off">
    
     <h3>Contraseña:</h3>
-    <input type="text" name="password" class="form-control mb-2"  autocomplete="off" required>
+    <input type="text" name="password" class="form-control mb-2"  autocomplete="off">
 
     <h3> Confirmar contraseña:</h3>
-    <input type="text" id="password-confirm" name="password_confirmation" class="form-control mb-2" required  autocomplete="off">
+    <input type="text" id="password-confirm" name="password_confirmation" class="form-control mb-2" autocomplete="off">
 
     @error('password')
     @if($errors->first('password')=='The password confirmation does not match.')
