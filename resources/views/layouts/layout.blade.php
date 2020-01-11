@@ -44,9 +44,9 @@
     <ul class="navbar-nav ml-auto">
     <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <span class="hidden-xs">Administrador</span>
+              <span class="hidden-xs">{{ Auth::user()->name }}</span>
             </a>
-            <ul class="dropdown-menu" style="width:100% !important">
+            <ul class="dropdown-menu" style="width:100% !important; margin-left: -150%;">
              
               <li class="user-footer">
                 <div class="pull-right">
