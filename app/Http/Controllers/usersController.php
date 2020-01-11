@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Hash;
 
 class usersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function users(){
         $users = App\User::all();
          return view('users', compact('users'));
