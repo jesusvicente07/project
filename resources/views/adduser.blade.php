@@ -25,12 +25,17 @@ Agregar nuevo usuario
     La contraseña no coincide
     </div>
     @endif 
-    @elseif('password' == 'password_confirmation')
     @enderror
     <div class="float-right">
     <button class="btn btn-primary" type="submit">Agregar nuevo usuario</button>
     </div>
   </form>
 </div>
-
+@section('script')
+    <script>
+    $('#password-confirm').keyup(function(){
+      $('#pass-alert').css('display','none')
+    });
+    </script>
+@endsection
 @endsection
