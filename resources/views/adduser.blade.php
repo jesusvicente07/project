@@ -9,19 +9,20 @@ Agregar nuevo usuario
     @csrf
 
     <h3>Nombre:</h3>
-    <input type="text" name="name" class="form-control mb-2" value="{{ old('name') }}" autocomplete="off" required>
+    <input type="text" name="name" class="form-control mb-2" value="{{ old('name') }}" autocomplete="off" required minlength=3>
 
     <h3>Correo:</h3>
-    <input type="email" name="email" class="form-control mb-2" value="{{ old('email') }}" autocomplete="off" required>
+    <input type="email" name="email" class="form-control mb-2" value="{{ old('email') }}" autocomplete="off" required minlength=3>
  
     <h3>Contraseña:</h3>
-    <input type="password" name="password" class="form-control mb-2" autocomplete="off" required>
+    <input type="password" name="password" class="form-control mb-2" autocomplete="off" required  minlength=3>
     
     <h3> Confirmar contraseña:</h3>
-    <input type="password" id="password-confirm" name="password_confirmation" class="form-control mb-2" autocomplete="off" required>
+    <input type="password" id="password-confirm" name="password_confirmation" class="form-control mb-2" autocomplete="off" required minlength=3>
     @error('password')
     @if($errors->first('password')=='The password confirmation does not match.')
     <div class="alert alert-danger">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     La contraseña no coincide
     </div>
     @endif 

@@ -14,7 +14,7 @@ class usersController extends Controller
     }
     
     public function users(){
-        $users = App\User::all();
+        $users = App\User::paginate(3);
          return view('users', compact('users'));
      }
 
@@ -39,7 +39,7 @@ class usersController extends Controller
         ]);
         $user->save();
 
-        return redirect('users/edit/'.$user->id)->with('mensaje', 'Usuario Actualizado!');
+        return redirect('users/edit/'.$user->id)->with('mensaje', 'El usuario ha sido actualizado exitosamente!');
     }
 
     function store(Request $request){
@@ -57,13 +57,13 @@ class usersController extends Controller
 
         $adduser->save();
 
-        return redirect('users')->with('mensaje', 'Usuario Agregado!');
+        return redirect('users')->with('mensaje', 'El usuario ha sido agregado exitosamente!');
     }
 
     public function delete($id){
         $deleteuser = App\User::findOrFail($id);
         $deleteuser->delete();
 
-        return redirect('/users')->with('mensaje', 'Usuario eliminado!');
+        return redirect('/users')->with('mensaje', 'El usuario ha sido eliminado exitosamente!');
     }
 }

@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('section')
 <div class="col-md-3">
-<div class="small-box bg-warning">
+<div class="small-box bg-primary">
     <div class="inner">
     <h1>{{$users}}</h1>
 
