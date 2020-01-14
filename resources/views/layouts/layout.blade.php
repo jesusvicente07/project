@@ -86,18 +86,12 @@
                with font-awesome or any other icon font library -->
                <li class="nav-item">
                     <a href="{{route('home')}}" class="nav-link">
-                    <i class=""></i>
-                    <h3>
                         Inicio
-                    </h3>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{route('users')}}" class="nav-link">
-                    <i class=""></i>
-                    <h3>
                         Usuarios
-                    </h3>
                     </a>
                 </li>
           

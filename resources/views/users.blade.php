@@ -10,7 +10,7 @@
 @endif
 
   <div class="container my-4">
-  <a href="{{route('create')}}" class="btn btn-success btn-sm float-sm-right mt-5 mb-5">Nuevo usuario</a>
+  <a href="{{route('create')}}" class="btn btn-primary btn-sm float-sm-right mt-5 mb-5">Nuevo usuario</a>
   <table class="table">
   <thead>
     <tr>
