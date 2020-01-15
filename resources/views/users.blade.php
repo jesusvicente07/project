@@ -32,34 +32,31 @@
 </table>
   {{$users->links()}}
     </div>
-    <div id="showModal"></div>
- 
+     <!-- Modal -->
+     <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+        
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-body">
+            <strong>Seguro que desea eliminar al usuario:</strong>
+            <p class="ml-5" id="text"></p>
+          </div>
+          <div class="modal-footer">
+          <form action="#" id="formModal" method="POST" class="d-inline col-md-10">
+          @method('DELETE')
+          @csrf
+          <button type="submit "class="btn btn-default">Eliminar</button>
+          </form>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+          </div>
+      </div> 
     @section('script')
     <script>
     function Mymodal(user){
-        var modal=`
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
-        
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-body">
-              <strong>Seguro que desea eliminar al usuario:</strong>
-              <p class="ml-5" id="text">${user.email}</p>
-            </div>
-            <div class="modal-footer">
-            <form action="/users/delete/${user.id}" method="POST" class="d-inline col-md-10">
-            @method('DELETE')
-            @csrf
-            <button type="submit "class="btn btn-default">Eliminar</button>
-            </form>
-              <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-            </div>
-          </div>
-        `
-         $('#showModal').html(modal);
-         $('#myModal').modal()
+      $('#text').html(user.email);
+      $('#formModal').attr('action', '/users/delete/'+user.id);
+      $('#myModal').modal();
     }
     </script>
     @endsection
